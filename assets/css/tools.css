@@ -1,0 +1,185 @@
+* {
+  font-family: 'Space Mono', monospace !important;
+}
+
+.bg-grid {
+  background-attachment: fixed;
+  background-color: #fbf7ee;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+body {
+  background-color: #fbf7ee;
+  color: #000000;
+  font-family: 'Space Mono', monospace !important;
+  min-height: 100vh;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+html, body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+input {
+  background-color: transparent !important;
+  border: none !important;
+  color: #000000 !important;
+  font-family: 'Space Mono', monospace !important;
+  outline: none !important;
+}
+
+input::placeholder {
+  color: #71717a !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #71717a !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  caret-color: #000000 !important;
+  font-family: 'Space Mono', monospace !important;
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+.modal-fullscreen {
+  align-items: center !important;
+  background: rgba(0, 0, 0, 0.85) !important;
+  display: flex !important;
+  inset: 0 !important;
+  justify-content: center !important;
+  padding: 0.75rem !important;
+  position: fixed !important;
+  z-index: 99999 !important;
+}
+
+.neo-accordion-collapse {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.45s cubic-bezier(0.32, 0.72, 0, 1);
+  will-change: height;
+}
+
+.neo-accordion-inner {
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+}
+
+.neo-btn,
+.neo-icon-btn {
+  align-items: center;
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  box-shadow: 3px 3px 0px #000000;
+  color: #000000;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  transition: transform 0.08s ease-out, box-shadow 0.08s ease-out, background-color 0.1s ease;
+  user-select: none;
+}
+
+.neo-btn:active,
+.neo-icon-btn:active {
+  box-shadow: 0px 0px 0px #000000 !important;
+  transform: translate(3px, 3px) !important;
+}
+
+.neo-btn:hover,
+.neo-icon-btn:hover {
+  box-shadow: 0px 0px 0px #000000 !important;
+  transform: translate(3px, 3px);
+}
+
+.neo-btn-accent {
+  background-color: #a3e635;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  box-shadow: 4px 4px 0px #000000;
+  color: #000000;
+  cursor: pointer;
+  font-weight: 800;
+  transition: transform 0.08s ease-out, box-shadow 0.08s ease-out, background-color 0.1s ease;
+  user-select: none;
+}
+
+.neo-btn-accent:active {
+  background-color: #84cc16;
+  box-shadow: 0px 0px 0px #000000 !important;
+  transform: translate(4px, 4px) !important;
+}
+
+.neo-btn-accent:hover {
+  background-color: #84cc16;
+  box-shadow: 0px 0px 0px #000000 !important;
+  transform: translate(4px, 4px) !important;
+}
+
+.neo-btn-primary {
+  background-color: #fde047;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  box-shadow: 3px 3px 0px #000000;
+  color: #000000;
+  cursor: pointer;
+  font-weight: 800;
+  transition: background-color 0.15s ease, transform 0.08s ease, box-shadow 0.08s ease;
+  user-select: none;
+}
+
+.neo-btn-primary:active {
+  box-shadow: 0px 0px 0px #000000 !important;
+  transform: translate(3px, 3px) !important;
+}
+
+.neo-btn-primary:hover {
+  background-color: #facc15;
+}
+
+.neo-chevron {
+  display: inline-block !important;
+  transform-origin: center center;
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1) !important;
+  will-change: transform;
+}
+
+.neo-chevron.is-open,
+.is-open .neo-chevron,
+.is-open.neo-chevron {
+  transform: rotate(180deg) !important;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+strong, b {
+  font-weight: 900 !important;
+}
+
+tr.is-active-row {
+  background-color: #fef9c3 !important;
+}
