@@ -85,14 +85,14 @@
                     </thead>
                     <tbody class="divide-y-[2.5px] divide-black">
                     
-                    <tr onclick="toggleRow('tool-video')" class="md:hover:bg-[#fef9c3] cursor-pointer transition-colors group">
+                    <tr onclick="TOGGLE_ROW('row-tool-video')" class="md:hover:bg-[#fef9c3] cursor-pointer transition-colors group">
                         <td class="p-3.5 font-black text-black align-middle text-center border-r-[2.5px] border-black">
-                            <div class="inline-flex items-center justify-center gap-2">
+                            <div class="flex items-center justify-center gap-1.5 text-center">
                                 <svg class="w-4 h-4 text-black shrink-0 stroke-current stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="m22 8-6 4 6 4V8Z"/>
                                     <rect width="14" height="12" x="2" y="6" rx="2" ry="2"/>
                                 </svg>
-                                <span>TikTok Quality</span>
+                                <span class="leading-tight">TikTok Quality</span>
                             </div>
                         </td>
                         <td class="p-3.5 text-zinc-800 align-middle text-center border-r-[2.5px] border-black font-bold">HQ Upload Bypass</td>
@@ -115,79 +115,75 @@
                     </tr>
 
                     <tr id="row-tool-video" class="hidden bg-[#fffdfa]">
-                        <td colspan="5" class="p-0 border-t-[2.5px] border-b-[2.5px] border-black text-left">
-                            <div class="neo-accordion-collapse">
-                                <div class="neo-accordion-inner px-4 sm:px-6 py-4">
-                                    <div class="border-[2.5px] border-black bg-white rounded-none p-5 max-w-3xl mx-auto space-y-4 shadow-[4px_4px_0_#000000]">
-                                        <div class="flex items-center justify-between text-xs font-bold text-zinc-700 border-b-[2px] border-black pb-3">
-                                            <span class="font-black text-black">STATISTIK :</span>
-                                            <span>DI PROSES : <strong id="tool-usage-count" class="text-black font-black">...</strong> VIDEO</span>
-                                        </div>
+                        <td colspan="5" class="p-4 sm:p-6 border-t-[2.5px] border-b-[2.5px] border-black text-left">
+                            <div class="border-[2.5px] border-black bg-white rounded-none p-5 max-w-3xl mx-auto space-y-4 shadow-[4px_4px_0_#000000]">
+                                <div class="flex items-center justify-between text-xs font-bold text-zinc-700 border-b-[2px] border-black pb-3">
+                                    <span class="font-black text-black">STATISTIK :</span>
+                                    <span>DI PROSES : <strong id="tool-usage-count" class="text-black font-black">...</strong> VIDEO</span>
+                                </div>
 
-                                        <div>
-                                            <label class="block text-black text-xs mb-2 font-black tracking-wider">PILIH METODE PATCH :</label>
-                                            <div class="grid grid-cols-2 gap-3 w-full">
-                                                <button type="button" id="tab-quality-v1" onclick="switchQualityMethod('v1')" class="neo-btn-primary w-full py-2.5 px-3 flex flex-col items-center justify-center gap-0.5 text-xs text-center">
-                                                    <div class="flex items-center gap-1.5 font-black">
-                                                        <i data-lucide="sparkles" class="w-3.5 h-3.5 stroke-[2.5]"></i>
-                                                        <span>PURE LOSSLESS</span>
-                                                    </div>
-                                                    <span class="text-[9.5px] font-bold opacity-80">64-Bit Sentinel Asli</span>
-                                                </button>
-                                                <button type="button" id="tab-quality-v2" onclick="switchQualityMethod('v2')" class="neo-btn w-full py-2.5 px-3 flex flex-col items-center justify-center gap-0.5 text-xs text-center">
-                                                    <div class="flex items-center gap-1.5 font-black">
-                                                        <i data-lucide="layers" class="w-3.5 h-3.5 stroke-[2.5]"></i>
-                                                        <span>HYBRID BYPASS</span>
-                                                    </div>
-                                                    <span class="text-[9.5px] font-bold opacity-80">Dual-Track + Fake Samples</span>
-                                                </button>
+                                <div>
+                                    <label class="block text-black text-xs mb-2 font-black tracking-wider">PILIH METODE PATCH :</label>
+                                    <div class="grid grid-cols-2 gap-3 w-full">
+                                        <button type="button" id="tab-quality-v1" onclick="SWITCH_QUALITY_METHOD('v1')" class="neo-btn-primary w-full py-2.5 px-3 flex flex-col items-center justify-center gap-0.5 text-xs text-center">
+                                            <div class="flex items-center gap-1.5 font-black">
+                                                <i data-lucide="sparkles" class="w-3.5 h-3.5 stroke-[2.5]"></i>
+                                                <span>PURE LOSSLESS</span>
                                             </div>
-                                        </div>
-
-                                        <div>
-                                            <label class="block text-black text-xs mb-2 font-black tracking-wider">PILIH FILE VIDEO :</label>
-                                            <div id="dropzone-box" onclick="document.getElementById('videoUploader').click()" class="cursor-pointer group flex flex-col items-center justify-center p-6 sm:p-8 rounded-none border-[2.5px] border-dashed border-black bg-[#fafafa] hover:bg-[#fef9c3] transition-all shadow-[3px_3px_0_#000000] text-center select-none">
-                                                <div class="w-12 h-12 mb-3 rounded-none border-[2px] border-black bg-[#fef08a] group-hover:scale-110 flex items-center justify-center shadow-[2px_2px_0_#000000] transition-transform">
-                                                    <i data-lucide="file-up" class="w-6 h-6 text-black stroke-[2.5]"></i>
-                                                </div>
-
-                                                <div class="space-y-1">
-                                                    <p id="file-selected-name" class="text-xs sm:text-sm font-black text-black tracking-tight">
-                                                        Tarik & letakkan video di sini atau klik untuk memilih
-                                                    </p>
-                                                    <p class="text-[10px] sm:text-xs text-zinc-500 font-bold tracking-wider">
-                                                        Mendukung MP4, MOV, WebM (Maks 500MB)
-                                                    </p>
-                                                </div>
-
-                                                <input type="file" id="videoUploader" accept="video/mp4,video/quicktime,video/webm" class="hidden" onchange="handleFileSelect(this)" />
-                                            </div>
-                                        </div>
-
-                                        <button id="tool-process-btn" onclick="executeProcess()" class="neo-btn-accent w-full py-3 text-xs tracking-wider">
-                                            <span id="tool-process-label">MULAI PATCH</span>
+                                            <span class="text-[9.5px] font-bold opacity-80">64-Bit Sentinel Asli</span>
                                         </button>
-
-                                        <div id="tool-error-msg" class="hidden text-center text-xs font-mono font-bold text-red-500 py-1"></div>
-
-                                        <div class="border-[2.5px] border-black bg-white rounded-none overflow-hidden shadow-[3px_3px_0_#000000]">
-                                            <div class="flex items-center justify-between px-3.5 py-2 bg-[#e4e4e7] border-b-[2px] border-black text-xs text-black font-extrabold">
-                                                <span class="font-black">CONSOLE LOG</span>
-                                                <button type="button" onclick="document.getElementById('tiktok-logs').textContent = ''" title="Bersihkan Log" aria-label="Clear Log" class="p-1.5 w-7 h-7 rounded-none border-[2px] border-black bg-white hover:bg-rose-100 flex items-center justify-center cursor-pointer select-none"><i data-lucide="trash-2" class="w-3.5 h-3.5 text-black stroke-[2.5]"></i></button>
+                                        <button type="button" id="tab-quality-v2" onclick="SWITCH_QUALITY_METHOD('v2')" class="neo-btn w-full py-2.5 px-3 flex flex-col items-center justify-center gap-0.5 text-xs text-center">
+                                            <div class="flex items-center gap-1.5 font-black">
+                                                <i data-lucide="layers" class="w-3.5 h-3.5 stroke-[2.5]"></i>
+                                                <span>HYBRID BYPASS</span>
                                             </div>
-                                            <pre id="tiktok-logs" class="p-3 text-xs text-black bg-[#fafafa] h-40 overflow-y-auto whitespace-pre-wrap leading-relaxed select-text no-scrollbar font-mono"></pre>
-                                        </div>
+                                            <span class="text-[9.5px] font-bold opacity-80">Dual-Track + Fake Samples</span>
+                                        </button>
                                     </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-black text-xs mb-2 font-black tracking-wider">PILIH FILE VIDEO :</label>
+                                    <div id="dropzone-box" onclick="document.getElementById('videoUploader').click()" class="cursor-pointer group flex flex-col items-center justify-center p-6 sm:p-8 rounded-none border-[2.5px] border-dashed border-black bg-[#fafafa] hover:bg-[#fef9c3] transition-all shadow-[3px_3px_0_#000000] text-center select-none">
+                                        <div class="w-12 h-12 mb-3 rounded-none border-[2px] border-black bg-[#fef08a] group-hover:scale-110 flex items-center justify-center shadow-[2px_2px_0_#000000] transition-transform">
+                                            <i data-lucide="file-up" class="w-6 h-6 text-black stroke-[2.5]"></i>
+                                        </div>
+
+                                        <div class="space-y-1">
+                                            <p id="file-selected-name" class="text-xs sm:text-sm font-black text-black tracking-tight">
+                                                Tarik & letakkan video di sini atau klik untuk memilih
+                                            </p>
+                                            <p class="text-[10px] sm:text-xs text-zinc-500 font-bold tracking-wider">
+                                                Mendukung MP4, MOV, WebM (Maks 500MB)
+                                            </p>
+                                        </div>
+
+                                        <input type="file" id="videoUploader" accept="video/mp4,video/quicktime,video/webm" class="hidden" onchange="HANDLE_FILE_SELECT(this)" />
+                                    </div>
+                                </div>
+
+                                <button id="tool-process-btn" onclick="EXECUTE_PROCESS()" class="neo-btn-accent w-full py-3 text-xs tracking-wider">
+                                    <span id="tool-process-label">MULAI PATCH</span>
+                                </button>
+
+                                <div id="tool-error-msg" class="hidden text-center text-xs font-mono font-bold text-red-500 py-1"></div>
+
+                                <div class="border-[2.5px] border-black bg-white rounded-none overflow-hidden shadow-[3px_3px_0_#000000]">
+                                    <div class="flex items-center justify-between px-3.5 py-2 bg-[#e4e4e7] border-b-[2px] border-black text-xs text-black font-extrabold">
+                                        <span class="font-black">CONSOLE LOG</span>
+                                        <button type="button" onclick="document.getElementById('tiktok-logs').textContent = ''" title="Bersihkan Log" aria-label="Clear Log" class="p-1.5 w-7 h-7 rounded-none border-[2px] border-black bg-white hover:bg-rose-100 flex items-center justify-center cursor-pointer select-none"><i data-lucide="trash-2" class="w-3.5 h-3.5 text-black stroke-[2.5]"></i></button>
+                                    </div>
+                                    <pre id="tiktok-logs" class="p-3 text-xs text-black bg-[#fafafa] h-40 overflow-y-auto whitespace-pre-wrap leading-relaxed select-text no-scrollbar font-mono"></pre>
                                 </div>
                             </div>
                         </td>
                     </tr>
 
-                    <tr onclick="toggleRow('tool-checker')" class="md:hover:bg-[#fef9c3] cursor-pointer transition-colors group">
+                    <tr onclick="TOGGLE_ROW('row-tool-checker')" class="md:hover:bg-[#fef9c3] cursor-pointer transition-colors group">
                         <td class="p-3.5 font-black text-black align-middle text-center border-r-[2.5px] border-black">
-                            <div class="inline-flex items-center justify-center gap-2">
+                            <div class="flex items-center justify-center gap-1.5 text-center">
                                 <i data-lucide="search" class="w-4 h-4 text-black shrink-0 stroke-[2.5]"></i>
-                                <span>TikTok Checker</span>
+                                <span class="leading-tight">TikTok Checker</span>
                             </div>
                         </td>
                         <td class="p-3.5 text-zinc-800 align-middle text-center border-r-[2.5px] border-black font-bold">TikTok Analyzer</td>
@@ -210,78 +206,119 @@
                     </tr>
 
                     <tr id="row-tool-checker" class="hidden bg-[#fffdfa]">
-                        <td colspan="5" class="p-0 border-t-[2.5px] border-b-[2.5px] border-black text-left">
-                            <div class="neo-accordion-collapse">
-                                <div class="neo-accordion-inner px-4 sm:px-6 py-4">
-                                    <div class="border-[2.5px] border-black bg-white rounded-none p-5 max-w-3xl mx-auto space-y-4 shadow-[4px_4px_0_#000000]">
-                                        <div class="flex items-center justify-between text-xs font-bold text-zinc-700 border-b-[2px] border-black pb-3">
-                                            <span class="font-black text-black">STATISTIK :</span>
-                                            <span>DI CEK : <strong id="tool-checker-count" class="text-black font-black">...</strong> QUERY</span>
-                                        </div>
+                        <td colspan="5" class="p-4 sm:p-6 border-t-[2.5px] border-b-[2.5px] border-black text-left">
+                            <div class="border-[2.5px] border-black bg-white rounded-none p-5 max-w-3xl mx-auto space-y-4 shadow-[4px_4px_0_#000000]">
+                                <div class="flex items-center justify-between text-xs font-bold text-zinc-700 border-b-[2px] border-black pb-3">
+                                    <span class="font-black text-black">STATISTIK :</span>
+                                    <span>DI CEK : <strong id="tool-checker-count" class="text-black font-black">...</strong> QUERY</span>
+                                </div>
 
-                                        <div>
-                                            <label class="block text-black text-xs mb-2 font-black">PILIH JENIS CEK :</label>
-                                            <div class="grid grid-cols-2 gap-3">
-                                                <button type="button" id="tab-checker-video" onclick="switchCheckerTab('video')" class="neo-btn-primary py-2.5 px-3 flex items-center justify-center gap-2 text-xs">
-                                                    <i data-lucide="video" class="w-4 h-4 stroke-[2.5]"></i>
-                                                    <span>Video</span>
-                                                </button>
-                                                <button type="button" id="tab-checker-profile" onclick="switchCheckerTab('profile')" class="neo-btn py-2.5 px-3 flex items-center justify-center gap-2 text-xs">
-                                                    <i data-lucide="user" class="w-4 h-4"></i>
-                                                    <span>Profile</span>
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <div id="checker-video-input-box" class="space-y-1.5">
-                                            <label class="block text-black text-xs font-black">LINK VIDEO TIKTOK :</label>
-                                            <div class="flex items-center gap-2 bg-[#f4f4f5] p-2 rounded-none border-[2px] border-black shadow-[2px_2px_0_#000000] focus-within:bg-white transition-colors">
-                                                <i data-lucide="link" class="w-4 h-4 text-black ml-2"></i>
-                                                <input type="text" id="checker-video-url" placeholder="https://vt.tiktok.com/.../" class="w-full bg-transparent border-none text-xs text-black placeholder-zinc-500 focus:outline-none focus:ring-0 font-mono" />
-                                            </div>
-                                        </div>
-
-                                        <div id="checker-profile-input-box" class="hidden space-y-1.5">
-                                            <label class="block text-black text-xs font-black">USERNAME TIKTOK :</label>
-                                            <div class="flex items-center gap-2 bg-[#f4f4f5] p-2 rounded-none border-[2px] border-black shadow-[2px_2px_0_#000000] focus-within:bg-white transition-colors">
-                                                <span class="text-black font-mono font-black ml-2">@</span>
-                                                <input type="text" id="checker-profile-username" placeholder="username (ex: sorawangyy)" class="w-full bg-transparent border-none text-xs text-black placeholder-zinc-500 focus:outline-none focus:ring-0 font-mono" />
-                                            </div>
-                                        </div>
-
-                                        <button id="checker-process-btn" onclick="executeCheckerProcess()" class="neo-btn-accent w-full py-3 text-xs tracking-wider">
-                                            <span id="checker-process-label">MULAI PENGECEKAN</span>
-                                        </button>
-
-                                        <div id="checker-error-msg" class="hidden text-center text-xs font-mono font-bold text-red-500 py-1"></div>
-
-                                        <div class="border-[2.5px] border-black bg-white rounded-none overflow-hidden shadow-[3px_3px_0_#000000]">
-                                            <div class="flex items-center justify-between px-3.5 py-2 bg-[#e4e4e7] border-b-[2px] border-black text-xs text-black font-extrabold">
-                                                <span class="font-black">CONSOLE LOG</span>
-                                                <button type="button" onclick="document.getElementById('checker-logs').textContent = ''" title="Bersihkan Log" aria-label="Clear Log" class="p-1.5 w-7 h-7 rounded-none border-[2px] border-black bg-white hover:bg-rose-100 flex items-center justify-center cursor-pointer select-none"><i data-lucide="trash-2" class="w-3.5 h-3.5 text-black stroke-[2.5]"></i></button>
-                                            </div>
-                                            <pre id="checker-logs" class="p-3 text-xs text-black bg-[#fafafa] h-28 overflow-y-auto whitespace-pre-wrap leading-relaxed select-text no-scrollbar font-mono"></pre>
-                                        </div>
-
-                                        <div id="checker-result-card" class="hidden space-y-3 pt-2">
-                                            <div class="flex items-center justify-between text-xs font-black text-black border-t-[2px] border-black pt-3">
-                                                <span>HASIL PENGECEKAN :</span>
-                                                <button onclick="copyCheckerResult()" class="neo-btn px-3 py-1 text-xs gap-1.5">
-                                                    <i data-lucide="copy" class="w-3.5 h-3.5 text-black"></i>
-                                                    <span id="copy-result-btn-label">SALIN</span>
-                                                </button>
-                                            </div>
-
-                                            <div class="border-[2.5px] border-black bg-[#f4f4f5] rounded-none p-3.5 shadow-[3px_3px_0_#000000]">
-                                                <pre id="checker-result-content" class="text-xs text-black whitespace-pre-wrap break-all leading-relaxed select-text font-mono font-semibold"></pre>
-                                            </div>
-
-                                            <a id="checker-download-video-btn" href="#" target="_blank" download="tiktok_video.mp4" class="neo-btn w-full py-3 bg-[#67e8f9] hover:bg-[#22d3ee] text-black font-black text-xs tracking-wider gap-2">
-                                                <i data-lucide="download" class="w-4 h-4 stroke-[2.5]"></i>
-                                                <span>UNDUH VIDEO (HD)</span>
-                                            </a>
-                                        </div>
+                                <div id="checker-video-input-box" class="space-y-1.5">
+                                    <label class="block text-black text-xs font-black">LINK VIDEO TIKTOK :</label>
+                                    <div class="flex items-center gap-2 bg-[#f4f4f5] p-2 rounded-none border-[2px] border-black shadow-[2px_2px_0_#000000] focus-within:bg-white transition-colors">
+                                        <i data-lucide="link" class="w-4 h-4 text-black ml-2"></i>
+                                        <input type="text" id="checker-video-url" placeholder="https://vt.tiktok.com/.../" class="w-full bg-transparent border-none text-xs text-black placeholder-zinc-500 focus:outline-none focus:ring-0 font-mono" />
                                     </div>
+                                </div>
+
+                                <button id="checker-process-btn" onclick="executeCheckerProcess()" class="neo-btn-accent w-full py-3 text-xs tracking-wider">
+                                    <span id="checker-process-label">MULAI PENGECEKAN</span>
+                                </button>
+
+                                <div id="checker-error-msg" class="hidden text-center text-xs font-mono font-bold text-red-500 py-1"></div>
+
+                                <div class="border-[2.5px] border-black bg-white rounded-none overflow-hidden shadow-[3px_3px_0_#000000]">
+                                    <div class="flex items-center justify-between px-3.5 py-2 bg-[#e4e4e7] border-b-[2px] border-black text-xs text-black font-extrabold">
+                                        <span class="font-black">CONSOLE LOG</span>
+                                        <button type="button" onclick="document.getElementById('checker-logs').textContent = ''" title="Bersihkan Log" aria-label="Clear Log" class="p-1.5 w-7 h-7 rounded-none border-[2px] border-black bg-white hover:bg-rose-100 flex items-center justify-center cursor-pointer select-none"><i data-lucide="trash-2" class="w-3.5 h-3.5 text-black stroke-[2.5]"></i></button>
+                                    </div>
+                                    <pre id="checker-logs" class="p-3 text-xs text-black bg-[#fafafa] h-40 overflow-y-auto whitespace-pre-wrap leading-relaxed select-text no-scrollbar font-mono"></pre>
+                                </div>
+
+                                <div id="checker-result-card" class="hidden space-y-3 pt-2">
+                                    <div class="flex items-center justify-between text-xs font-black text-black border-t-[2px] border-black pt-3">
+                                        <span>HASIL PENGECEKAN :</span>
+                                        <button onclick="copyCheckerResult()" class="neo-btn px-3 py-1 text-xs gap-1.5">
+                                            <i data-lucide="copy" class="w-3.5 h-3.5 text-black"></i>
+                                            <span id="copy-result-btn-label">SALIN</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="border-[2.5px] border-black bg-[#f4f4f5] rounded-none p-3.5 shadow-[3px_3px_0_#000000]">
+                                        <pre id="checker-result-content" class="text-xs text-black whitespace-pre-wrap break-all leading-relaxed select-text font-mono font-semibold"></pre>
+                                    </div>
+
+                                    <a id="checker-download-video-btn" href="#" target="_blank" download="tiktok_video.mp4" class="neo-btn rounded-none w-full py-3 bg-[#a3e635] hover:bg-[#84cc16] text-black font-black text-xs tracking-wider gap-2">
+                                        <i data-lucide="download" class="w-4 h-4 stroke-[2.5]"></i>
+                                        <span>UNDUH VIDEO (HD)</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr onclick="TOGGLE_ROW('row-tool-am')" class="md:hover:bg-[#fef9c3] cursor-pointer transition-colors group">
+                        <td class="p-3.5 font-black text-black align-middle text-center border-r-[2.5px] border-black">
+                            <div class="flex items-center justify-center gap-1.5 text-center">
+                                <svg class="w-4 h-4 text-black shrink-0 stroke-current stroke-[3]" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M43.5,28.3294a19.5,19.5,0,0,0-39,0"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M18.4694,32.593a6.9229,6.9229,0,0,0,9.79-9.7905"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M23.25,39.1706a11.2273,11.2273,0,1,0,0-22.4545"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M34.6024,38.2223a14.6374,14.6374,0,1,0-20.7-20.7"></path>
+                                </svg>
+                                <span class="leading-tight">Alight Motion Generator</span>
+                            </div>
+                        </td>
+                        <td class="p-3.5 text-zinc-800 align-middle text-center border-r-[2.5px] border-black font-bold">Change Your Account Pro</td>
+                        <td class="hidden md:table-cell p-3.5 text-center align-middle border-r-[2.5px] border-black">
+                            <span id="version-tool-am" class="inline-block px-2.5 py-0.5 rounded-md border-[2px] border-black bg-[#bae6fd] text-[10px] text-black font-black shadow-[1.5px_1.5px_0_#000000]">
+                                v1.0
+                            </span>
+                        </td>
+                        <td class="hidden md:table-cell p-3.5 text-center align-middle border-r-[2.5px] border-black">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border-[2px] border-black bg-[#a3e635] text-[10px] text-black font-black shadow-[2px_2px_0_#000000]">
+                                <span class="w-1.5 h-1.5 rounded-full bg-black animate-pulse"></span>
+                                STABIL
+                            </span>
+                        </td>
+                        <td class="p-3.5 text-center align-middle">
+                            <button class="neo-action-btn p-2 w-9 h-9 mx-auto">
+                                <i data-lucide="chevron-down" class="w-4 h-4 stroke-[3] text-black neo-chevron"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr id="row-tool-am" class="hidden bg-[#fffdfa]">
+                        <td colspan="5" class="p-4 sm:p-6 border-t-[2.5px] border-b-[2.5px] border-black text-left">
+                            <div class="border-[2.5px] border-black bg-white rounded-none p-5 max-w-3xl mx-auto space-y-4 shadow-[4px_4px_0_#000000]">
+
+                                <div class="flex items-center justify-between text-xs font-bold text-zinc-700 border-b-[2px] border-black pb-3">
+                                    <span class="font-black text-black">STATISTIK :</span>
+                                    <span>DI PROSES : <strong id="tool-am-count" class="text-black font-black">...</strong> AKUN</span>
+                                </div>
+
+                                <div class="space-y-1.5">
+                                    <label class="block text-black text-xs font-black tracking-wider">MASUKKAN EMAIL :</label>
+                                    <div class="flex items-center gap-2 bg-[#f4f4f5] p-2 border-[2px] border-black shadow-[2px_2px_0_#000000] focus-within:bg-white transition-colors">
+                                        <i id="am-input-icon" data-lucide="mail" class="w-4 h-4 text-black ml-2"></i>
+                                        <input type="email" id="am-input-email" placeholder="ajradev@gmail.com" class="w-full bg-transparent border-none text-xs text-black placeholder-zinc-500 focus:outline-none font-mono" />
+                                    </div>
+                                </div>
+
+                                <button id="am-process-btn" onclick="EXECUTE_AM_PROCESS()" class="neo-btn-accent w-full py-3 text-xs tracking-wider">
+                                    <span id="am-process-label">KIRIM LINK VERIFIKASI</span>
+                                </button>
+
+                                <div id="am-error-msg" class="hidden text-center text-xs font-mono font-bold text-red-500 py-1"></div>
+
+                                <div class="border-[2.5px] border-black bg-white rounded-none overflow-hidden shadow-[3px_3px_0_#000000]">
+                                    <div class="flex items-center justify-between px-3.5 py-2 bg-[#e4e4e7] border-b-[2px] border-black text-xs text-black font-extrabold">
+                                        <span class="font-black">CONSOLE LOG</span>
+                                        <button type="button" onclick="document.getElementById('am-logs').textContent = ''" title="Bersihkan Log" class="p-1.5 w-7 h-7 border-[2px] border-black bg-white hover:bg-rose-100 flex items-center justify-center cursor-pointer select-none">
+                                            <i data-lucide="trash-2" class="w-3.5 h-3.5 text-black stroke-[2.5]"></i>
+                                        </button>
+                                    </div>
+                                    <pre id="am-logs" class="p-3 text-xs text-black bg-[#fafafa] h-40 overflow-y-auto whitespace-pre-wrap leading-relaxed select-text font-mono no-scrollbar"></pre>
                                 </div>
                             </div>
                         </td>
@@ -310,42 +347,6 @@
                 </div>
             </div>
         </footer>
-    </div>
-
-    <div id="patch-success-drawer" class="fixed inset-0 z-50 pointer-events-none transition-all duration-300 hidden">
-        <div id="drawer-backdrop" onclick="closeSuccessDrawer()" class="absolute inset-0 bg-black/40 backdrop-blur-[2px] opacity-0 transition-opacity duration-300 pointer-events-none"></div>
-
-        <div id="drawer-panel" class="absolute bottom-0 left-0 right-0 max-w-xl mx-auto bg-[#fbf7ee] border-t-[3.5px] border-x-[3.5px] border-black rounded-t-2xl shadow-[0_-6px_0_#000000] p-6 pt-3 transform translate-y-full transition-transform duration-300 ease-out pointer-events-auto">
-            <div class="w-12 h-1.5 bg-black rounded-full mx-auto mb-4 cursor-pointer" onclick="closeSuccessDrawer()"></div>
-
-            <div class="text-center space-y-3.5">
-                <div class="inline-flex items-center gap-1.5 bg-[#a3e635] border-[2px] border-black px-3 py-1 rounded-full text-xs font-black tracking-wider text-black shadow-[2px_2px_0_#000000]">
-                    <i data-lucide="check-circle" class="w-4 h-4 stroke-[3]"></i>
-                    <span>PATCH BERHASIL DIPROSES</span>
-                </div>
-
-                <h3 class="text-lg sm:text-xl font-black text-black tracking-tight">
-                    Video Siap Diunggah ke TikTok!
-                </h3>
-
-                <div class="bg-white border-[2.5px] border-black p-3.5 text-left text-xs font-mono rounded-none shadow-[3px_3px_0_#000000] space-y-1.5">
-                    <div class="flex items-center gap-2 font-black text-black border-b-[1.5px] border-black pb-1">
-                        <i data-lucide="info" class="w-4 h-4 stroke-[2.5]"></i>
-                        <span>CATATAN PENTING :</span>
-                    </div>
-                    <p class="text-zinc-800 leading-relaxed font-bold">
-                        1. Pastikan upload menggunakan browser seperti <strong class="font-black text-black">Edge</strong> atau <strong class="font-black text-black">Quetta.</strong><br/>
-                        2. Video jangan di <strong class="font-black text-black">Private</strong>, langsung <strong class="font-black text-black">Publik</strong> agar tidak dikompres.
-                    </p>
-                </div>
-
-                <div class="pt-2 flex items-center justify-center gap-3">
-                    <button type="button" onclick="closeSuccessDrawer()" class="py-2.5 px-6 text-xs font-black tracking-wider text-black bg-[#a3e635] hover:bg-[#84cc16] border-[2.5px] border-black rounded-xl shadow-[3px_3px_0_#000000] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none transition-all duration-150 cursor-pointer">
-                        Saya Mengerti
-                    </button>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script src="./assets/js/tools-main.js"></script>
