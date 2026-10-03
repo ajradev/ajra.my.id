@@ -125,19 +125,13 @@
                                 <div>
                                     <label class="block text-black text-xs mb-2 font-black tracking-wider">PILIH METODE PATCH :</label>
                                     <div class="grid grid-cols-2 gap-3 w-full">
-                                        <button type="button" id="tab-quality-v1" onclick="SWITCH_QUALITY_METHOD('v1')" class="neo-btn-primary w-full py-2.5 px-3 flex flex-col items-center justify-center gap-0.5 text-xs text-center">
-                                            <div class="flex items-center gap-1.5 font-black">
-                                                <i data-lucide="sparkles" class="w-3.5 h-3.5 stroke-[2.5]"></i>
-                                                <span>PURE LOSSLESS</span>
-                                            </div>
-                                            <span class="text-[9.5px] font-bold opacity-80">64-Bit Sentinel Asli</span>
+                                        <button type="button" id="tab-quality-v1" onclick="SWITCH_QUALITY_METHOD('v1')" class="neo-btn-primary rounded-none w-full py-2.5 px-3 flex flex-col items-center justify-center gap-0.5 text-xs text-center">
+                                            <span class="font-black">LOSSLESS</span>
+                                            <span class="text-[9.5px] font-bold opacity-80">4K | 120 FPS | Dolby Vision & HDR10+</span>
                                         </button>
-                                        <button type="button" id="tab-quality-v2" onclick="SWITCH_QUALITY_METHOD('v2')" class="neo-btn w-full py-2.5 px-3 flex flex-col items-center justify-center gap-0.5 text-xs text-center">
-                                            <div class="flex items-center gap-1.5 font-black">
-                                                <i data-lucide="layers" class="w-3.5 h-3.5 stroke-[2.5]"></i>
-                                                <span>HYBRID BYPASS</span>
-                                            </div>
-                                            <span class="text-[9.5px] font-bold opacity-80">Dual-Track + Fake Samples</span>
+                                        <button type="button" id="tab-quality-v2" onclick="SWITCH_QUALITY_METHOD('v2')" class="neo-btn rounded-none w-full py-2.5 px-3 flex flex-col items-center justify-center gap-0.5 text-xs text-center">
+                                            <span class="font-black">HYBRID</span>
+                                            <span class="text-[9.5px] font-bold opacity-80">1080p - 2K | 120 FPS | SDR & HDR10+</span>
                                         </button>
                                     </div>
                                 </div>
@@ -154,7 +148,7 @@
                                                 Tarik & letakkan video di sini atau klik untuk memilih
                                             </p>
                                             <p class="text-[10px] sm:text-xs text-zinc-500 font-bold tracking-wider">
-                                                Mendukung MP4, MOV, WebM (Maks 500MB)
+                                                Mendukung MP4, MOV, WebM
                                             </p>
                                         </div>
 
@@ -162,7 +156,7 @@
                                     </div>
                                 </div>
 
-                                <button id="tool-process-btn" onclick="EXECUTE_PROCESS()" class="neo-btn-accent w-full py-3 text-xs tracking-wider">
+                                <button id="tool-process-btn" onclick="EXECUTE_PROCESS()" class="neo-btn-accent rounded-none w-full py-3 text-xs tracking-wider">
                                     <span id="tool-process-label">MULAI PATCH</span>
                                 </button>
 
@@ -221,7 +215,7 @@
                                     </div>
                                 </div>
 
-                                <button id="checker-process-btn" onclick="executeCheckerProcess()" class="neo-btn-accent w-full py-3 text-xs tracking-wider">
+                                <button id="checker-process-btn" onclick="executeCheckerProcess()" class="neo-btn-accent rounded-none w-full py-3 text-xs tracking-wider">
                                     <span id="checker-process-label">MULAI PENGECEKAN</span>
                                 </button>
 
@@ -305,7 +299,7 @@
                                     </div>
                                 </div>
 
-                                <button id="am-process-btn" onclick="EXECUTE_AM_PROCESS()" class="neo-btn-accent w-full py-3 text-xs tracking-wider">
+                                <button id="am-process-btn" onclick="EXECUTE_AM_PROCESS()" class="neo-btn-accent rounded-none w-full py-3 text-xs tracking-wider">
                                     <span id="am-process-label">KIRIM LINK VERIFIKASI</span>
                                 </button>
 
