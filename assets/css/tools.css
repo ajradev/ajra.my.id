@@ -48,9 +48,21 @@ input:-webkit-autofill:focus {
     -webkit-text-fill-color: #000000 !important;
 }
 
+main > div {
+    min-width: 280px !important;
+}
+
 strong,
 b {
     font-weight: 900 !important;
+}
+
+table {
+    min-width: 280px !important;
+}
+
+td[colspan] {
+    max-width: 0 !important;
 }
 
 tr.is-active-row {
@@ -89,12 +101,25 @@ tr.is-active-row {
     padding-top: 1rem;
 }
 
+.neo-action-btn {
+    align-items: center !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    height: auto !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    width: auto !important;
+}
+
 .neo-btn,
 .neo-icon-btn {
     align-items: center;
     background-color: #ffffff;
     border: 2px solid #000000;
-    border-radius: 12px;
+    border-radius: 0px !important;
     box-shadow: 3px 3px 0px #000000;
     color: #000000;
     cursor: pointer;
@@ -119,7 +144,7 @@ tr.is-active-row {
 .neo-btn-accent {
     background-color: #a3e635;
     border: 2px solid #000000;
-    border-radius: 12px;
+    border-radius: 0px !important;
     box-shadow: 4px 4px 0px #000000;
     color: #000000;
     cursor: pointer;
@@ -138,7 +163,7 @@ tr.is-active-row {
 .neo-btn-primary {
     background-color: #fde047;
     border: 2px solid #000000;
-    border-radius: 12px;
+    border-radius: 0px !important;
     box-shadow: 3px 3px 0px #000000;
     color: #000000;
     cursor: pointer;
@@ -169,8 +194,13 @@ tr.is-active-row {
     transform: rotate(180deg) !important;
 }
 
-@media (max-width: 360px) {
-    body {
-        zoom: 0.95;
-    }
+#tiktok-logs,
+#checker-logs,
+#am-logs,
+#checker-result-content {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+    white-space: pre-wrap !important;
+    word-break: break-all !important;
 }
