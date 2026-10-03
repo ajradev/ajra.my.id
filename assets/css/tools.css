@@ -2,39 +2,35 @@
     font-family: 'Space Mono', monospace !important;
 }
 
+[id$="-drawer-panel"].translate-y-full,
+#drawer-panel.translate-y-full {
+    transform: translateY(100%) !important;
+}
+
 body {
     background-color: #fbf7ee;
     color: #000000;
-    font-family: 'Space Mono', monospace !important;
     min-height: 100vh;
 }
 
-body::-webkit-scrollbar {
+body::-webkit-scrollbar,
+html::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar {
     display: none;
 }
 
-html {
+html,
+body,
+.no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
-    -webkit-text-size-adjust: 100% !important;
-    -moz-text-size-adjust: 100% !important;
-    text-size-adjust: 100% !important;
-}
-
-html::-webkit-scrollbar {
-    display: none;
-}
-
-html, body {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    text-size-adjust: 100%;
 }
 
 input {
     background-color: transparent !important;
     border: none !important;
     color: #000000 !important;
-    font-family: 'Space Mono', monospace !important;
     outline: none !important;
 }
 
@@ -48,9 +44,17 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
     caret-color: #000000 !important;
-    font-family: 'Space Mono', monospace !important;
     -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
     -webkit-text-fill-color: #000000 !important;
+}
+
+strong,
+b {
+    font-weight: 900 !important;
+}
+
+tr.is-active-row {
+    background-color: #fef9c3 !important;
 }
 
 .bg-grid {
@@ -100,16 +104,16 @@ input:-webkit-autofill:focus {
     user-select: none;
 }
 
-.neo-btn:active,
-.neo-icon-btn:active {
-    box-shadow: 0px 0px 0px #000000 !important;
-    transform: translate(3px, 3px) !important;
-}
-
 .neo-btn:hover,
 .neo-icon-btn:hover {
     box-shadow: 0px 0px 0px #000000 !important;
     transform: translate(3px, 3px);
+}
+
+.neo-btn:active,
+.neo-icon-btn:active {
+    box-shadow: 0px 0px 0px #000000 !important;
+    transform: translate(3px, 3px) !important;
 }
 
 .neo-btn-accent {
@@ -124,13 +128,8 @@ input:-webkit-autofill:focus {
     user-select: none;
 }
 
+.neo-btn-accent:hover,
 .neo-btn-accent:active {
-    background-color: #84cc16;
-    box-shadow: 0px 0px 0px #000000 !important;
-    transform: translate(4px, 4px) !important;
-}
-
-.neo-btn-accent:hover {
     background-color: #84cc16;
     box-shadow: 0px 0px 0px #000000 !important;
     transform: translate(4px, 4px) !important;
@@ -148,13 +147,13 @@ input:-webkit-autofill:focus {
     user-select: none;
 }
 
+.neo-btn-primary:hover {
+    background-color: #facc15;
+}
+
 .neo-btn-primary:active {
     box-shadow: 0px 0px 0px #000000 !important;
     transform: translate(3px, 3px) !important;
-}
-
-.neo-btn-primary:hover {
-    background-color: #facc15;
 }
 
 .neo-chevron {
@@ -168,23 +167,6 @@ input:-webkit-autofill:focus {
 .is-open .neo-chevron,
 .is-open.neo-chevron {
     transform: rotate(180deg) !important;
-}
-
-.no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-.no-scrollbar::-webkit-scrollbar {
-    display: none;
-}
-
-tr.is-active-row {
-    background-color: #fef9c3 !important;
-}
-
-strong, b {
-    font-weight: 900 !important;
 }
 
 @media (max-width: 360px) {
